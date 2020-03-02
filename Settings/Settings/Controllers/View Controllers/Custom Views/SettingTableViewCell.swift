@@ -10,15 +10,28 @@ import UIKit
 
 class SettingTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+   //MARK: - Outlets
+    @IBOutlet weak var settingIconImageView: UIImageView!
+    
+    @IBOutlet weak var settingNameLabel: UILabel!
+    
+    @IBOutlet weak var settingSwitch: UISwitch!
+    
+    //MARK: - Actions
+    
+    @IBAction func settingsSwitchToggled(_ sender: Any) {
+        //TODO
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //MARK: - Helper methods
+    
+    func updateViews(with setting: Setting) {
+        settingIconImageView.image = setting.icon
+        settingNameLabel.text = setting.settingTitle
+        settingSwitch.isOn = settingSwitch.isOn
+        //ternary oporerator
+        backgroundColor = setting.isOn ? .cyan : .white
+        
     }
-
+    
 }
